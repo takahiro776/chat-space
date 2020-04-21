@@ -30,32 +30,32 @@ Things you may want to cover:
 |password|string|null: false|
 |username|string|null: false|
 ### Association
-- has_many :groups
-- has_many :chats
+- has_many :groups, through: :users_groups
 - has_many :users_groups
+- has_many :chats
 
 
 ## groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|group_name|string|null: false|
-|user_id|integer|null: false, foreign_key: true|
+|name|string|null: false|
 ### Association
-- has_many :chats
-- belongs_to :user
+- has_many :users, through: :users_groups
 - has_many :users_groups
+- has_many :chats
 
 
 ## chatsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |text|text|null: false|
-|datetime|datetime|null: false|
+|image|string|---|
 |user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :group
 - belongs_to :user
+
 
 ## users_groupsテーブル
 |Column|Type|Options|
