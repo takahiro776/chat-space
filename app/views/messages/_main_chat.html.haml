@@ -1,0 +1,37 @@
+.chat
+  .chat-group
+    .chat-group__name
+      .chat-group__name--group-name
+        test
+      .chat-group__name--member
+        Member:masa
+    .chat-group__EditBtn
+      = link_to "Edit", "#", class: "edit-btn"
+
+  .chat-MessageContents
+    .chat-MessageContents__item
+      .chat-MessageContents__item--top
+        %p.name
+          masa
+        %p.datetime
+          2019／11／20(Wed) 17：43：01
+      .chat-MessageContents__item--text
+        おはよう！
+    .chat-MessageContents__item
+      .chat-MessageContents__item--top
+        %p.name
+          masa
+        %p.datetime
+          2019／11／20(Wed) 17：43：01
+      .chat-MessageContents__item--text
+        おはよう！
+  .chat-MessageArea
+    .chat-MessageArea__form
+      .chat-MessageArea__form--TextArea
+        %p
+          type a message
+        %label{class: "input-box__image"}
+          = icon('fas', 'image')
+          %input{type: "file"}
+      .chat-MessageArea__form--SendBtn
+        = link_to "Send", "#", class: "send-btn" 
