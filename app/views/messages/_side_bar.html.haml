@@ -1,12 +1,17 @@
-.side-bar__top
-  .side-bar__top__user-name
-    = current_user.name
-    .side-bar__top__user-name__icon
-      = link_to "#", class: "contents_btn" do
-        = icon('far', 'edit')
-      = link_to edit_user_path(current_user) do
-        = icon('fas', 'cog')
-.side-bar__group
-  .side-bar__group__item
-    %p.side-bar__group__item--user-name techcamp
-    %p.side-bar__group__item--text まだメッセージはありません
+.side-bar
+  .side-bar__top
+    .side-bar__top__user-name
+      = current_user.name
+      .side-bar__top__user-name__icon
+        = link_to new_group_path, class: "contents_btn" do
+          = icon('far', 'edit')
+        = link_to edit_user_path(current_user) do
+          = icon('fas', 'cog')
+  .side-bar__group
+    - current_user.groups.each do |group|
+      .side-bar__group__item
+        = link_to '#' do
+          .side-bar__group__item--user-name
+            = group.name
+          .side-bar__group__item--text
+          まだテキストはありません
