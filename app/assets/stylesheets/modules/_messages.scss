@@ -47,6 +47,10 @@
     &__item{
       width: 100%;
       padding: 0 20px;
+      a{
+        text-decoration: none;
+        color: $ColorWhite;
+      }
       &--user-name{
         font-size: 15px;
         padding-top: 20px;
@@ -116,25 +120,28 @@
         padding-top: 35px;
       }
       &--top{
-        p{
-          display: inline-block;
-          padding-bottom: 12px;
-          &.name{
-            font-size: 16px;
-            color: #333333;
+        padding-bottom: 12px;
+        display: flex;
+        align-items: center;
+        .name{
+          padding-right: 10px;
+          font-size: 16px;
+          color: #333333;
           }
-          &.datetime{
-            font-size: 12px;
-            color: #999999;
+        .datetime{
+          font-size: 12px;
+          color: #999999;
           }
         }
-      }
       &--text{
         font-size: 14px;
         color: #434A54;
       }
+      &--img{
+        max-height: 100px;
+      }
+      }
     }
-  }
   
 .chat-MessageArea{
     height: 90px;
@@ -146,6 +153,9 @@
       flex-shrink: 0;
       height: 50px;
       display: flex;
+      form{
+        display: flex;
+      }
       &--TextArea{
         height: 50px;
         flex-shrink: 0;
@@ -154,15 +164,17 @@
         background-color: #fff;
         padding: 0 10px;
         overflow: hidden;
-        p{
+        .form__message{
+          width: 100%;
           line-height: 50px;
+          border: none;
         }
         .input-box__image{
           position: absolute;
           right: 10px;
           top: 50%;
           transform: translateY(-50%);
-          input{
+          .hide{
             display: none;
           }
         }
@@ -173,10 +185,11 @@
         text-align: center;
         line-height: 50px;
         background-color: $ColorBule;
-        a{
-          text-decoration: none;
-          color: #ffffff;
-
+        margin-left: 15px;
+        input{
+          background-color: $ColorBule;
+          color: $ColorWhite;
+          border: none;
         }
       }
     }

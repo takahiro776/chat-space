@@ -2,36 +2,24 @@
   .chat-group
     .chat-group__name
       .chat-group__name--group-name
-        test
+        = @group.name
       .chat-group__name--member
-        Member:masa
+        Menber:
+        - @users.each do |user|
+          = user.name
     .chat-group__EditBtn
-      = link_to "Edit", "#", class: "edit-btn"
+      = link_to "Edit", edit_group_path(@group), class: "edit-btn"
 
   .chat-MessageContents
-    .chat-MessageContents__item
-      .chat-MessageContents__item--top
-        %p.name
-          masa
-        %p.datetime
-          2019／11／20(Wed) 17：43：01
-      .chat-MessageContents__item--text
-        おはよう！
-    .chat-MessageContents__item
-      .chat-MessageContents__item--top
-        %p.name
-          masa
-        %p.datetime
-          2019／11／20(Wed) 17：43：01
-      .chat-MessageContents__item--text
-        おはよう！
+    = render @messages
+
   .chat-MessageArea
     .chat-MessageArea__form
-      .chat-MessageArea__form--TextArea
-        %p
-          type a message
-        %label{class: "input-box__image"}
-          = icon('fas', 'image')
-          %input{type: "file"}
-      .chat-MessageArea__form--SendBtn
-        = link_to "Send", "#", class: "send-btn" 
+      = form_for [@group, @message] do |f|
+        .chat-MessageArea__form--TextArea
+          = f.text_field :content, class: 'form__message', placeholder: "type a message"
+          = f.label :image, class: 'input-box__image' do
+            = icon('fas', 'image')
+            = f.file_field :image, class: 'hide'
+        .chat-MessageArea__form--SendBtn
+          = f.submit "Send", class: "send-btn" 
