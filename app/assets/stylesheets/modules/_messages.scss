@@ -113,6 +113,7 @@
 .chat-MessageContents{
     height: calc(100vh - 190px);
     background-color: #fafafa;
+    overflow: scroll;
     &__item{
       padding-bottom: 46px;
       padding-left: 40px;
